@@ -2199,7 +2199,7 @@
         // change the hangedguy img src
         const hangedGuy = document.getElementById("hangman");
         const hang = (step) => {
-            step > 11 ? step = 11 : 0;
+            step == 11 ? step = 10 : 0;
             hangedGuy.src = arrHang[step]
         }
 
