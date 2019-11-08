@@ -2244,6 +2244,7 @@
                         alert(`Bravo, vous avez gagné!\nNombre d'essai: ${numberOfTry}\nNombre d'erreur: ${numberOfBadTry}`);
                     } else if(numberOfBadTry === 11){
                         alert("Vous avez perdu ! :( ")
+                        target.innerHTML = arrLettersFromWordToFind.join(' ');
                     } else{
                         guessLetter();
                     }
