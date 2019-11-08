@@ -1,0 +1,24 @@
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100VW;
+  height: 100VH;
+  background-color: #f1ff94;
+  font-family: 'PT Sans', sans-serif;
+}
+
+body button {
+  width: 10em;
+}
+/*# sourceMappingURL=style2.css.map */

@@ -1,0 +1,14 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100VW;
+    height: 100VH;
+    background-color: #f1ff94;
+    font-family: 'PT Sans', sans-serif;
+
+    button{
+        width: 10em;
+    }
+}
