@@ -2166,7 +2166,9 @@
         ,"ZOOS"]
         
     const penduGame = () => {
-        let wordToFind               = randomWords[Math.floor(Math.random()) * randomWords.length] ;                 // Could be changed later and requested from an API
+        let random = (Math.floor(Math.random() * randomWords.length));
+        let wordToFind               = randomWords[random] ;                 // Could be changed later and requested from an API
+        console.log(random)
             wordToFind               = wordToFind.toUpperCase();  // Doing this the case hasn't any impact on the game.
             arrLettersFromWordToFind = wordToFind.split("");
         let arrFoundLetters          = [];
@@ -2204,46 +2206,49 @@
         }
 
         const guessLetter = () => {
-            // get a letter from user
-            let letter = prompt("donnez une lettre");
-            // Doing this the case hasn't any impact on the game.
-            letter = letter.toUpperCase();
-            // check if there is only one char and that it is a letter
-            if ((letter.length > 1) || (!/[a-z]/i.test(letter))){
-                alert("Vous ne pouvez donner qu'une lettre !");
-                guessLetter();
-                // Check if the letter has already been done
-            } else if (arrLetterAlreadyTried.includes(letter)){
-                alert(`vous avez déjà essayé la lettre ${letter}`);
-                guessLetter();
-            } else {
-                numberOfTry++;
-                arrLetterAlreadyTried.push(letter);
-                // check if the letter is in the word to find
-                if (arrLettersFromWordToFind.includes(letter)){
-                    alert("Bravo, vous avez trouvé une lettre !")
-                    //add the find letter to the place they are
-                    for ( let i=0; i < arrLettersFromWordToFind.length; i++){
-                        if (arrLettersFromWordToFind[i] == letter){
-                            arrFoundLetters[i] = letter;
-                        }
-                        target.innerHTML = arrFoundLetters.join(' ');
-                    }
-                // if the the letter isn't in the word, get the stat and display a message
-                } else {
-                    numberOfBadTry++;
-                    hang(numberOfBadTry);
-                    alert(`Le mot ne contient pas la lettre ${letter}`);
-                }
-                // Check if the word has been find
-                if(wordToFind == arrFoundLetters.join('')){
-                    alert(`Bravo, vous avez gagné!\nNombre d'essai: ${numberOfTry}\nNombre d'erreur: ${numberOfBadTry}`);
-                } else if(numberOfBadTry === 11){
-                    alert("Vous avez perdu ! :( ")
-                } else{
+            setTimeout(
+                    ()=>{
+                // get a letter from user
+                let letter = prompt("donnez une lettre");
+                // Doing this the case hasn't any impact on the game.
+                letter = letter.toUpperCase();
+                // check if there is only one char and that it is a letter
+                if ((letter.length > 1) || (!/[a-z]/i.test(letter))){
+                    alert("Vous ne pouvez donner qu'une lettre !");
                     guessLetter();
+                    // Check if the letter has already been done
+                } else if (arrLetterAlreadyTried.includes(letter)){
+                    alert(`vous avez déjà essayé la lettre ${letter}`);
+                    guessLetter();
+                } else {
+                    numberOfTry++;
+                    arrLetterAlreadyTried.push(letter);
+                    // check if the letter is in the word to find
+                    if (arrLettersFromWordToFind.includes(letter)){
+                        alert("Bravo, vous avez trouvé une lettre !")
+                        //add the find letter to the place they are
+                        for ( let i=0; i < arrLettersFromWordToFind.length; i++){
+                            if (arrLettersFromWordToFind[i] == letter){
+                                arrFoundLetters[i] = letter;
+                            }
+                            target.innerHTML = arrFoundLetters.join(' ');
+                        }
+                    // if the the letter isn't in the word, get the stat and display a message
+                    } else {
+                        numberOfBadTry++;
+                        hang(numberOfBadTry);
+                        alert(`Le mot ne contient pas la lettre ${letter}`);
+                    }
+                    // Check if the word has been find
+                    if(wordToFind == arrFoundLetters.join('')){
+                        alert(`Bravo, vous avez gagné!\nNombre d'essai: ${numberOfTry}\nNombre d'erreur: ${numberOfBadTry}`);
+                    } else if(numberOfBadTry === 11){
+                        alert("Vous avez perdu ! :( ")
+                    } else{
+                        guessLetter();
+                    }
                 }
-            }
+            },10)
         }
 
         // Launch the cycle
