@@ -2,9 +2,8 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -16,9 +15,10 @@ body {
   height: 100VH;
   background-color: #f1ff94;
   font-family: 'PT Sans', sans-serif;
-}
-
-body button {
-  width: 10em;
-}
-/*# sourceMappingURL=style2.css.map */
+  font-size: 52px; }
+  body button {
+    width: 10em;
+    margin: 2rem;
+    padding: 2rem;
+    border-radius: 15 px; }
+/*# sourceMappingURL=style.css.map */

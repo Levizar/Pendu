@@ -1,14 +1,18 @@
 body{
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     flex-direction: column;
     width: 100VW;
     height: 100VH;
     background-color: #f1ff94;
     font-family: 'PT Sans', sans-serif;
+    font-size: 52px;
 
     button{
         width: 10em;
+        margin: 2rem;
+        padding: 2rem;
+        border-radius: 15 px;
     }
 }
